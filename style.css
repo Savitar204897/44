@@ -1,0 +1,1195 @@
+/* === Общие стили === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1c2e4a 0%, #ffffff 35%, #ffffff 100%);
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* === ШАПКА === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1c2e4a;
+  color: white;
+  padding: 15px 25px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* === Правая часть шапки === */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.social-icons img {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.search-input {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* === Бургер === */
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 24px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* === БОКОВОЕ МЕНЮ === */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100%;
+  background: #1c2e4a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 1000;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.side-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.side-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.side-socials img {
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+}
+
+.side-socials img:hover {
+  transform: scale(1.1);
+}
+
+/* === Слайдер === */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.slides {
+  display: flex;
+  animation: slide 12s infinite;
+}
+
+.slides img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+/* === Контент === */
+main {
+  flex: 1;
+  text-align: center;
+  padding: 25px;
+}
+
+.intro p {
+  max-width: 600px;
+  margin: 15px auto;
+  font-size: 1.1rem;
+}
+
+.banner img {
+  max-width: 40%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* === Подвал === */
+footer {
+  background: #1c2e4a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+.footer2 {
+  background: #1c2e4a;
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+}
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.footer-socials img {
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+}
+
+.footer-socials img:hover {
+  transform: scale(1.1);
+}
+
+/* === Адаптация === */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .search-input {
+    width: 100px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+/* === Новости === */
+.page-title {
+  text-align: center;
+  margin: 25px 0;
+  color: #1c2e4a;
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: scale(1.03);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-card p {
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: justify;
+}
+
+/* === Пагинация === */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 40px;
+}
+
+.pagination button {
+  background: #1c2e4a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #274b80;
+}
+
+/* === Одна новость === */
+.single-news {
+  display: none;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.single-news.active {
+  display: block;
+}
+
+.back-btn {
+  background: #1c2e4a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.single-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.single-content img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.news-text {
+  flex: 1;
+}
+
+/* === Поиск === */
+.search-container {
+  position: relative;
+}
+
+#newsSearch {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+#searchSuggestions {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  background: white;
+  color: black;
+  list-style: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+#searchSuggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#searchSuggestions li:hover {
+  background: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}
+/* === Красивое оформление новостей === */
+.page-title {
+  text-align: center;
+  margin: 30px 0 15px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #193b7d;
+}
+
+/* Сетка карточек */
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 20px 5%;
+}
+
+/* Карточка новости */
+.news-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f5ff 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #1c3f91;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-info {
+  padding: 15px 18px 20px;
+}
+
+.news-info h3 {
+  color: #1c3f91;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.news-info p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+/* === Пагинация === */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px 0 50px;
+}
+
+.pagination button {
+  background: #1c3f91;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button:hover {
+  background: #2e56b4;
+}
+
+.pagination button.active {
+  background: #2e56b4;
+  box-shadow: 0 0 10px rgba(44,82,165,0.5);
+}
+
+/* === Одна новость (страница новости) === */
+.single-news {
+  display: none;
+  padding: 40px 10%;
+  background: white;
+  border-radius: 15px;
+  margin: 30px auto 60px;
+  max-width: 1000px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+}
+
+.single-news.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.back-btn {
+  background: #1c3f91;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #2e56b4;
+}
+
+.single-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.single-content img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.news-text {
+  flex: 1;
+}
+
+.news-text h2 {
+  font-size: 1.6rem;
+  color: #1c3f91;
+  margin-bottom: 10px;
+}
+
+.news-text p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #333;
+  text-align: justify;
+}
+
+/* === Поиск === */
+.search-container {
+  position: relative;
+}
+
+#newsSearch {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+#newsSearch:focus {
+  border-color: #1c3f91;
+}
+#eventSearch {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+#eventSearch:focus {
+  border-color: #1c3f91;
+}
+#partnerSearch {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+#partnerSearch:focus {
+  border-color: #1c3f91;
+}
+#awardSearch {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+#awardSearch:focus {
+  border-color: #1c3f91;
+}
+#searchSuggestions {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  background: white;
+  list-style: none;
+  border-radius: 6px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+#searchSuggestions li {
+  padding: 10px;
+  cursor: pointer;
+  color: #1c3f91;
+  border-bottom: 1px solid #eee;
+  transition: 0.3s;
+}
+
+#searchSuggestions li:hover {
+  background: #f0f5ff;
+}
+/* === Анимация переходов новости === */
+.single-news.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.single-news.slide-out {
+  animation: slideOut 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+/* === Фикс футера на странице отдельной новости === */
+body.single-news-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.single-news-page main {
+  flex: 1 0 auto; /* main занимает все доступное пространство */
+}
+
+body.single-news-page .single-news {
+  flex: 1 0 auto; /* блок новости растягивается, если мало контента */
+  margin-bottom: 0; /* убираем лишний margin, чтобы футер был внизу */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* контент сверху */
+}
+/* Открытая карточка партнёра */
+.single-partner-page .single-news.active {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 60px; /* пространство для footer */
+  align-items: center;    /* центрируем контент */
+}
+
+/* Основной контент внутри карточки */
+.single-partner-page .single-news .single-content {
+  flex: 0;                 /* не растягивается на весь экран */
+  max-width: 900px;        /* ограничение по ширине */
+  width: 90%;              /* адаптивно */
+  margin: 20px 0;          /* отступ сверху и снизу */
+}
+/* === Адаптация для планшетов и телефонов === */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .search-input, #newsSearch, #eventSearch, #partnerSearch, #awardSearch {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .news-list, .events-list, .partners-list {
+    gap: 20px;
+  }
+
+  .single-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .single-content img {
+    max-width: 90%;
+  }
+
+  .news-text, .event-text {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .header-right {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .single-news, .single-event, .single-partner {
+    padding: 20px 5%;
+    max-width: 95%;
+    margin: 20px auto;
+  }
+
+  .news-card, .event-card, .partner-card {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .news-card img, .event-card img {
+    height: 180px;
+  }
+
+  .search-input, #newsSearch, #eventSearch, #partnerSearch, #awardSearch {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .single-content img {
+    max-width: 100%;
+  }
+
+  .news-text h2, .event-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .news-info h3, .event-info h3 {
+    font-size: 1rem;
+  }
+
+  .news-info p, .event-info p {
+    font-size: 0.9rem;
+  }
+
+  .back-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .slider {
+    max-height: 250px;
+  }
+}
+
+/* === Универсальная адаптация под карточки === */
+.news-list, .events-list, .partners-list {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 10px 5%;
+  gap: 15px;
+}
+
+.news-card, .event-card, .partner-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.single-news, .single-event, .single-partner {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* === Поиск адаптивно === */
+#searchSuggestions {
+  top: 35px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+#searchSuggestions li {
+  font-size: 0.9rem;
+  padding: 8px;
+}
+/* Выпадающее меню в шапке */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 250px;
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background: #ececec;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* ===== Верхний баннер ===== */
+.top-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;         /* убираем обрезания */
+  padding: 0;
+  background: #f1f1f1;      /* подложка, можно удалить */
+}
+
+/* Картинка баннера */
+.top-banner-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;      /* картинка полностью видна */
+  display: block;
+}
+
+/* Текст, если нужен */
+.top-banner-text {
+  position: absolute;        /* если будешь добавлять текст поверх */
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+  .top-banner-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;    /* на телефоне тоже НЕ режем */
+  }
+}
+
+    .intro {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .president-photo {
+      text-align: center;
+      margin: 20px 0 30px 0;
+    }
+
+    .president-photo img {
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .president-text p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    .sign-block {
+      margin-top: 25px;
+      text-align: right;
+      font-size: 18px;
+    }
+
+    .signature-image {
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    .signature-image img {
+      width: 180px;
+      opacity: 0.9;
+    }
+    .contacts-section {
+    display: flex;
+    gap: 40px;
+    padding: 40px 5%;
+    align-items: flex-start;
+}
+
+.contacts-box {
+    max-width: 350px;
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    line-height: 1.35;
+}
+
+.contacts-box h2 {
+    margin-bottom: 15px;
+    color: #1c3f91;
+    font-size: 1.4rem;
+}
+
+.contacts-box p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.contacts-box a {
+    color: #1c3f91;
+    text-decoration: none;
+}
+
+.contacts-box a:hover {
+    text-decoration: underline;
+}
+
+.contacts-image img {
+    max-width: 480px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.contacts-map {
+    margin: 40px 5% 60px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.contacts-wrapper {
+    display: flex;
+    align-items: flex-start;   /* выравнивание сверху */
+    gap: 30px;                 /* расстояние между текстом и фото */
+    justify-content: center;   /* по центру всей страницы */
+}
+
+.contacts-image img {
+    width: 260px;              /* регулируй размер под себя */
+    border-radius: 10px;       /* можно убрать если не надо */
+}
+/* ====== БОКОВОЕ ПОДМЕНЮ "О ассоциации" ====== */
+.side-dropdown {
+  position: relative;
+  margin: 5px 0;
+}
+
+.side-dropbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #2c3e50;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.side-dropbtn:hover {
+  background-color: #34495e;
+}
+
+.side-dropdown-content {
+  display: none;
+  flex-direction: column;
+  margin-left: 15px;
+  padding-left: 10px;
+  border-left: 2px solid #3498db;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.side-dropdown-content a {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.side-dropdown-content a:hover {
+  color: #3498db;
+}
+
+/* Активное подменю */
+.side-dropdown.active .side-dropdown-content {
+  display: flex;
+}
+
+/* Стрелка */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.side-dropdown.active .arrow {
+  transform: rotate(90deg);
+}
+/* === ОСНОВНОЙ КОНТЕНТ === */
+    main { flex:1; padding:20px 5%; }
+    .page-title { text-align:center; font-size:2rem; margin:20px 0; color:#1c3f91; }
+    .music-list { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:25px; }
+    .music-card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08); transition:all 0.3s ease; padding:15px; }
+    .music-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
+    .music-info h3 { font-size:1.1rem; color:#1c3f91; margin-bottom:8px; }
+    .music-info p { font-size:0.95rem; line-height:1.4; color:#333; margin-bottom:10px; }
+    .music-info audio { width:100%; outline:none; }
+    /* === ОСНОВНЫЙ КОНТЕНТ === */
+    main { flex:1; padding:20px 5%; display:flex; flex-direction:column; gap:20px; }
+    .page-title { text-align:center; font-size:2rem; margin-bottom:25px; color:#1c3f91; }
+    .report-list { display:flex; flex-direction:column; gap:20px; }
+    .report-card { background:white; border-radius:15px; padding:20px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 4px 15px rgba(0,0,0,0.08); transition:0.3s; }
+    .report-card:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+    .report-text { flex:1; margin-right:20px; color:#333; line-height:1.5; }
+    .report-btn { background:#1c3f91; color:white; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; transition:0.3s; text-decoration:none; }
+    .report-btn:hover { background:#2e56b4; }
+/* === Стили для блока наград === */
+#eventBody {
+  white-space: pre-line; /* учитывает переносы строк, но убирает лишние пробелы */
+  margin: 0;              /* убираем внешние отступы */
+  padding: 0;             /* убираем внутренние отступы */
+  line-height: 1.4;       /* плотность между строками */
+  text-align: left;       /* прижимаем текст к левому краю */
+  font-size: 1rem;        /* можно регулировать размер текста */
+  color: #333;            /* цвет текста */
+}
+@media (max-width: 768px) {
+  .president-text p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+}
+/* === Контейнер изображения со стрелками — теперь ШИРОКИЙ === */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;   /* РЕАЛЬНО большая ширина */
+  margin: 20px auto;
+}
+
+/* === Картинка мероприятия — теперь занимает всю ширину контейнера === */
+.single-event-image {
+  width: 100%;
+  max-height: 1000px;
+  height: auto;
+  object-fit: contain;   /* НЕ искажает картинку */
+  border-radius: 12px;
+  display: block;
+}
+/* === Стрелки внутри картинки === */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);   /* полупрозрачный фон */
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  color: white;
+  font-size: 26px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+/* Прячем стрелки при необходимости */
+.slider-btn.hidden {
+  display: none;
+}
+
+/* === Контейнер текста — под картинкой === */
+.single-event-content {
+  display: block;   /* картинка сверху, текст под ней */
+  margin-top: 20px;
+}
+
+.single-event-text {
+  margin-top: 20px;
+  max-width: 950px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Заголовок */
+#eventTitle {
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+/* ======= АДАПТИВНОСТЬ ======= */
+
+/* --- Планшеты --- */
+@media (max-width: 992px) {
+  .single-event-content {
+    gap: 15px;
+  }
+
+  .single-event-image {
+    max-width: 300px;
+  }
+}
+
+/* --- Телефоны --- */
+@media (max-width: 768px) {
+  .single-event-content {
+    flex-direction: column;   /* картинка сверху */
+  }
+
+  .single-event-image {
+    max-width: 100%;
+  }
+
+  #eventTitle {
+    font-size: 22px;
+  }
+
+  #eventBody {
+    font-size: 16px;
+  }
+}
+
